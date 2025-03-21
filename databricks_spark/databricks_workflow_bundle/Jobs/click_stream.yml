@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    click_stream:
+      name: click_stream
+      email_notifications:
+        on_duration_warning_threshold_exceeded:
+          - arulrajgopal@Outlook.com
+      health:
+        rules:
+          - metric: RUN_DURATION_SECONDS
+            op: GREATER_THAN
+            value: 300
+      tasks:
+        - task_key: click_stream_filter
+          notebook_task:
+            notebook_path: /Workspace/Users/arulrajg16061992@gmail.com/zero_to_one_spark/databricks_spark/databricks_workflow_and_budle_deploy/Task/FilterTask
+            source: WORKSPACE
+          existing_cluster_id: 0107-130629-piy4u21t
+        - task_key: click_stream_agg
+          depends_on:
+            - task_key: click_stream_filter
+          notebook_task:
+            notebook_path: /Workspace/Users/arulrajg16061992@gmail.com/zero_to_one_spark/databricks_spark/databricks_workflow_and_budle_deploy/Task/AggTask
+            source: WORKSPACE
+          existing_cluster_id: 0107-130629-piy4u21t
+      queue:
+        enabled: true

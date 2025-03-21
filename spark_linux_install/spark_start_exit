@@ -1,0 +1,25 @@
+#park-shell (scala)
+spark-shell
+:quit
+
+#pyspark shell
+pyspark
+quit()
+
+
+#for spark ui, at browser
+localhost:4040
+
+
+#To start the background process in spark
+#Ideally it is not required. This is added only to verify the processes
+#It it asked for password, provide system login password
+cd /opt/spark/spark-3.5.4-bin-hadoop3/sbin/
+sh start-all.sh
+jps
+sh stop-all.sh
+
+
+#spark submit
+spark-submit pyspark_code.py
+

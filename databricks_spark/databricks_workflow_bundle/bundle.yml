@@ -1,0 +1,15 @@
+bundle:
+  name: my-databricks-bundle
+
+include:
+  - Jobs/click_stream.yml
+
+targets:
+  dev:
+    mode: production
+    workspace:
+      host: https://adb-275387301495035.15.azuredatabricks.net
+    run_as:
+      user_name: ${workspace.current_user.userName}
+
+      

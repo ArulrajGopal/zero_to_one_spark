@@ -1,0 +1,21 @@
+#Install HomeBrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> /home/Arulraj/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/Arulraj/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo apt-get install build-essential
+
+
+brew tap databricks/tap
+brew install databricks
+
+databricks -v
+
+#configure
+databricks configure
+- add url as host
+- personal access token from settings > user > developer > access tokens
+
+
+
+
